@@ -1,3 +1,12 @@
 .header {
   display: block;
 }
+
+.header__wrapper {
+  padding: 25px 35px;
+  background-color: $color-default-white;
+}
+
+.header__logo {
+  display: inline-block;
+}

@@ -1,0 +1,138 @@
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.main .container {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: auto;
+  padding-top: 46px;
+  padding-bottom: 46px;
+}
+
+.main h1 {
+  width: 60%;
+  margin: 0 0 20px;
+  font-family: $font-family--neue-machina;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 96px;
+  line-height: 96px;
+  color: $color-neon-blue;
+
+  @include viewport--md {
+    width: 100%;
+  }
+}
+
+.main__description {
+  width: 40%;
+  padding-left: 20px;
+  padding-bottom: 80px;
+  animation: slideDown ease-in-out 1s;
+
+  @include viewport--md {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0;
+    background-color: $color-neon-blue;
+    opacity: 1;
+    transition: left 0.8s ease-in-out;
+  }
+
+  & svg {
+    width: 316px;
+    height: 289px;
+    margin-bottom: 35px;
+  }
+
+  & p {
+    margin: 0 0 20px;
+    font-family: $font-family--neue-machina;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 40px;
+    color: $color-default-black;
+
+    @include viewport--md {
+      max-width: 355px;
+      color: $color-default-white;
+    }
+  }
+
+  & .lightning path,
+  & .flag path,
+  & .roar path {
+    @include viewport--md {
+      fill: $color-default-white;
+    }
+  }
+}
+
+.main__description--clicked {
+  @include viewport--md {
+    left: 0;
+  }
+}
+
+.wrapper--show header,
+.wrapper--show main {
+  animation: slideDownBounce ease-in-out 1s;
+}
+
+.wrapper--nojs header,
+.wrapper--nojs main {
+  animation: slideDownBounce ease-in-out 1s;
+}
+
+.wrapper--show .lightning path,
+.wrapper--nojs .lightning path {
+  animation: 0.4s scale ease-in 2;
+  animation-delay: 1s;
+  transform-origin: center bottom;
+
+  @include viewport--md {
+    animation: none;
+  }
+}
+
+.main__description--clicked .lightning path {
+  animation: 0.4s scale ease-in 2;
+  animation-delay: 0.8s;
+  transform-origin: center bottom;
+}
+
+.wrapper--show .knight path,
+.wrapper--show .flag path,
+.wrapper--show .roar path,
+.wrapper--nojs .knight path,
+.wrapper--nojs .flag path,
+.wrapper--nojs .roar path {
+  animation: 0.4s jump;
+  animation-delay: 1.3s;
+  transform-origin: center bottom;
+
+  @include viewport--md {
+    animation: none;
+  }
+}
+
+.main__description--clicked .knight path,
+.main__description--clicked .flag path,
+.main__description--clicked .roar path {
+  animation: 0.4s jump;
+  animation-delay: 1.1s;
+  transform-origin: center bottom;
+}
